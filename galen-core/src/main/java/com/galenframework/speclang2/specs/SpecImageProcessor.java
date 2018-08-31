@@ -56,7 +56,7 @@ public class SpecImageProcessor implements SpecProcessor {
 
         for (Pair<String, String> parameter : parameters) {
             if ("file".equals(parameter.getKey())) {
-                if (contextPath != null) {
+                if (contextPath != null && System.getProperty('JENKINS_URL') != null) {
                     spec.getImagePaths().add(contextPath + File.separator + parameter.getValue());
                 }
                 else {
